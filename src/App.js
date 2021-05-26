@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import UndoCanvas from 'undo-canvas';
 import './App.css';
 import Toolbox from './components/toolbox/component';
+import {Text} from '@fluentui/react-text'
 //import DrawingCanvas from './components/canvas';
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
 
   return (
     <div id="maindiv">
+        <Text><h3>Test Canvas</h3></Text>
         <Toolbox cref={canvasRef} changeCol={changeCol} undoFunction={Undo} redoFunction={Redo}/>
         {/*<DrawingCanvas canvasRef={canvasRef} contextRef={contextRef} isDrawing={isDrawing} setIsDrawing={setIsDrawing} changeCol={changeCol}/>*/}
         <canvas id="canv"
