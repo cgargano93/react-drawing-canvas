@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import UndoCanvas from 'undo-canvas';
 import './App.css';
 import Toolbox from './components/toolbox/component';
+//import DrawingCanvas from './components/canvas';
 
 function App() {
   //References
@@ -66,6 +67,7 @@ function App() {
   return (
     <div id="maindiv">
         <Toolbox cref={canvasRef} changeCol={changeCol} undoFunction={Undo} redoFunction={Redo}/>
+        {/*<DrawingCanvas canvasRef={canvasRef} contextRef={contextRef} isDrawing={isDrawing} setIsDrawing={setIsDrawing} changeCol={changeCol}/>*/}
         <canvas id="canv"
           onMouseDown = {startDrawing}
           onMouseUp = {endDrawing}
