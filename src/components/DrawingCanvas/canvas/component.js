@@ -19,13 +19,15 @@ const DrawingCanvas = ({canvasRef,contextRef,pencilColor, pencilLine, pencilWidt
     context.strokeStyle = pencilColor;
     context.lineWidth = pencilWidth;
     contextRef.current = context;
-    console.log(pencilWidth);
     // eslint-disable-next-line
   }, []);
 
     const startDrawing = ({nativeEvent}) => {
         contextRef.current.putTag(); //For UNDO/REDO
         const {offsetX, offsetY} = nativeEvent;
+        //Resetting Color & Width
+        contextRef.current.strokeStyle = pencilColor;
+        contextRef.current.lineWidth = pencilWidth;
         contextRef.current.beginPath();
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true);
@@ -39,14 +41,6 @@ const DrawingCanvas = ({canvasRef,contextRef,pencilColor, pencilLine, pencilWidt
         contextRef.current.closePath();
         setIsDrawing(false);
     };
-    
-    // const Undo = () => {
-    //     contextRef.current.undoTag(); //For UNDO
-    // };
-    
-    // const Redo = () => {
-    //     contextRef.current.redoTag(); //For REDO
-    // };
     
     const Draw = ({nativeEvent}) => {
         if(!isDrawing) {
