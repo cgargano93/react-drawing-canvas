@@ -1,17 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import UndoCanvas from 'undo-canvas';
 
-const DrawingCanvas = () => {
-  //References
-  const canvasRef = useRef(null);
-  const contextRef = useRef(null);
-  //States
+const DrawingCanvas = ({canvasRef,contextRef,pencilColor, pencilLine, pencilWidth}) => {
   const [isDrawing, setIsDrawing] = useState(false);
-  //Impostazioni Pennello ->Potrei pensare di usare REDUX e fare unica var di stato
-  const [pencilColor, changeCol] = useState("black");
-  //const [pencilLine, changeLine] = useState("round");
 
-  useEffect((pencilColor /*, pencilLine*/)=> {
+  useEffect( (pencilColor,pencilLine,pencilWidth)=> {
     const canvas = canvasRef.current;
     canvas.width = window.innerWidth *2;
     canvas.height = window.innerHeight * 2;
@@ -22,11 +15,12 @@ const DrawingCanvas = () => {
     UndoCanvas.enableUndo(context);
     //**********************
     context.scale(2,2);
-    context.linecap = "round";
+    context.linecap = pencilLine;
     context.strokeStyle = pencilColor;
-    context.lineWidth = 5;
-
+    context.lineWidth = pencilWidth;
     contextRef.current = context;
+    console.log(pencilWidth);
+    // eslint-disable-next-line
   }, []);
 
     const startDrawing = ({nativeEvent}) => {
@@ -35,21 +29,24 @@ const DrawingCanvas = () => {
         contextRef.current.beginPath();
         contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true);
+        //TEST
+        console.log(pencilWidth);
+        console.log(pencilColor);
     };
     
     const endDrawing = () => {
-        contextRef.current.closePath();
         contextRef.current.putTag(); //For UNDO/REDO
+        contextRef.current.closePath();
         setIsDrawing(false);
     };
     
-    const Undo = () => {
-        contextRef.current.undoTag(); //For UNDO
-    };
+    // const Undo = () => {
+    //     contextRef.current.undoTag(); //For UNDO
+    // };
     
-    const Redo = () => {
-        contextRef.current.redoTag(); //For REDO
-    };
+    // const Redo = () => {
+    //     contextRef.current.redoTag(); //For REDO
+    // };
     
     const Draw = ({nativeEvent}) => {
         if(!isDrawing) {

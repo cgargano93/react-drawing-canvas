@@ -17,6 +17,7 @@ const ChangeColor = () => {
     ctx.strokeStyle = color;
     changeCol(color);
 };
+
     return (
         <ColorB  onClick={ChangeColor}></ColorB>
     );

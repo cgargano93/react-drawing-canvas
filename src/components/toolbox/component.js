@@ -5,9 +5,10 @@ import ColorButton from './colorbutton';
 import UndoButton from './undobutton';
 import RedoButton from './redobutton';
 import ScreenButton from './screenbutton';
+import WidthButton from './widthbutton';
 
 
-const Toolbox = ({cref, changeCol, undoFunction, redoFunction}) => {
+const Toolbox = ({cref, changeCol, changeLine, changeWidth, undoFunction, redoFunction}) => {
 
     const ToolB = styled.div`
         position: absolute;
@@ -44,6 +45,12 @@ const Toolbox = ({cref, changeCol, undoFunction, redoFunction}) => {
                 <ColorButton cref={cref} changeCol={changeCol} color="DodgerBlue"/>
                 <ColorButton cref={cref} changeCol={changeCol} color="blue"/>
                 <ColorButton cref={cref} changeCol={changeCol} color="white"/>
+            </Palette>
+            <Palette>
+                <WidthButton cref={cref} changeWidth={changeWidth} width={2}/>
+                <WidthButton cref={cref} changeWidth={changeWidth} width={5}/>
+                <WidthButton cref={cref} changeWidth={changeWidth} width={10}/>
+                <WidthButton cref={cref} changeWidth={changeWidth} width={20}/>
             </Palette>
         </ToolB>
     );
