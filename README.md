@@ -2,9 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Dependencies:
-1) Undo-Canvas by <a href="https://github.com/magicien">magicien</a>
-### npm install --save undo-canvas
+## Dependencies:
+1) <b>Undo-Canvas</b> by <a href="https://github.com/magicien">magicien</a>
+### `npm install --save undo-canvas`
+
+#
 
 ### `npm start`
 Runs the app in the development mode.\
