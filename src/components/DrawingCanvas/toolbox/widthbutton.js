@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const WidthButton = ({cref, changeWidth, width}) => {
+const WidthButton = ({cref, color, changeWidth, width}) => {
     const WidthB = styled.button`
-        border: ${22-width}px solid lightgrey;
+        border: ${20-width}px solid lightgrey;
         margin-left: 3px;
         margin-right: 3px;
         width: 0px;
         height: 0px;
         padding: ${width}px;
         border-radius: 20px;
-        background: black;
+        background: ${color};
         cursor: pointer;
     `
     const ChangeWidth = () => {

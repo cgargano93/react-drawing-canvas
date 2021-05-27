@@ -16,11 +16,11 @@ const Notes = () => {
   };
   const Redo = () => {
     contextRef.current.redoTag(); //For REDO
-  }
-
+  };
+  
   return (
     <div id="maindiv">
-        <Toolbox cref={canvasRef} changeCol={changeCol} changeLine={changeLine} changeWidth={changeWidth} undoFunction={Undo} redoFunction={Redo}/>
+        <Toolbox cref={canvasRef} pencilColor={pencilColor} changeCol={changeCol} changeLine={changeLine} changeWidth={changeWidth} undoFunction={Undo} redoFunction={Redo}/>
         <DrawingCanvas canvasRef={canvasRef} contextRef={contextRef} pencilColor={pencilColor} pencilLine={pencilLine} pencilWidth={pencilWidth}/>
     </div>
   );
