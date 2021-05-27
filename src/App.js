@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div id="maindiv">
-        <Text><h3>Test Canvas</h3></Text>
+        <Text><h1>Test Canvas</h1></Text>
         <Toolbox cref={canvasRef} changeCol={changeCol} undoFunction={Undo} redoFunction={Redo}/>
         {/*<DrawingCanvas canvasRef={canvasRef} contextRef={contextRef} isDrawing={isDrawing} setIsDrawing={setIsDrawing} changeCol={changeCol}/>*/}
         <canvas id="canv"
