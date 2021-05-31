@@ -2,9 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Dependencies:
+## Dependences:
 1) <b>Undo-Canvas</b> by <a href="https://github.com/magicien">magicien</a>
-### `npm install --save undo-canvas`
+### `npm install undo-canvas`
+2) <b>HTML2canvas</b> by <a href="https://github.com/niklasvh">niklasvh</a>
+### `npm install html2canvas`
 
 #
 
