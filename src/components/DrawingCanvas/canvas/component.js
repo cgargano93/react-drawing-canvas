@@ -52,7 +52,7 @@ const DrawingCanvas = ({canvasRef,contextRef,pencilColor, pencilLine, pencilWidt
     };
 
     return(
-        <canvas id="canv"
+        <canvas id="draw_canv"
             onMouseDown = {startDrawing}
             onMouseUp = {endDrawing}
             onMouseMove = {Draw}
