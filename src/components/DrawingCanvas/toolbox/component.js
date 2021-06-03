@@ -16,39 +16,48 @@ const Toolbox = ({cref, pencilColor, changeCol, changeLine, changeWidth, undoFun
         // background: DefaultPalette.themePrimary,
         // color: DefaultPalette.themePrimary,
         display: 'flex',
-        height: 50,
         justifyContent: 'center',
         width: 200,
-      });
+    });
 
-    const ToolboxStackTokens = { childrenGap: 10 };
-    const PaletteStackTokens = { childrenGap: 5 };
+    const stackStyles = mergeStyles({
+        // background: DefaultPalette.themePrimary,
+        // color: DefaultPalette.themePrimary,
+        justifyContent: 'center',
+        width: 200,
+    });
+
+    const ToolboxStackTokens = { childrenGap: 20 };
+    const PaletteStackTokens = { childrenGap: 2 };
 
 
     return (
-        <Stack tokens={ToolboxStackTokens}>
-            <ClearButton cref={cref}/>
-            <UndoButton undoFunction={undoFunction}/>
-            <RedoButton redoFunction={redoFunction}/>
-            <ScreenButton/>
+        <Stack tokens={ToolboxStackTokens} className={stackStyles}>
+            <StackItem className={stackItemStyles}><ClearButton cref={cref}/></StackItem>
+            <StackItem className={stackItemStyles}><UndoButton undoFunction={undoFunction}/></StackItem>
+            <StackItem className={stackItemStyles}><RedoButton redoFunction={redoFunction}/></StackItem>
+            <StackItem className={stackItemStyles}><ScreenButton/></StackItem>
             <Stack tokens={PaletteStackTokens}>
                 <StackItem className={stackItemStyles}>
                     <ColorButton cref={cref} changeCol={changeCol} color="black"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="#303030"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="grey"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="lightgrey"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="white"/>
+                </StackItem>
+                <StackItem className={stackItemStyles}>
                     <ColorButton cref={cref} changeCol={changeCol} color="darkred"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="tomato"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="orange"/>
-                </StackItem>
-                <StackItem className={stackItemStyles}>
                     <ColorButton cref={cref} changeCol={changeCol} color="yellow"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="limegreen"/>
-                    <ColorButton cref={cref} changeCol={changeCol} color="lightgreen"/>
-                    <ColorButton cref={cref} changeCol={changeCol} color="aquamarine"/>
                 </StackItem>
                 <StackItem className={stackItemStyles}>
+                    <ColorButton cref={cref} changeCol={changeCol} color="lightgreen"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="aquamarine"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="skyblue"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="DodgerBlue"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="blue"/>
-                    <ColorButton cref={cref} changeCol={changeCol} color="white"/>
                 </StackItem>
             </Stack>
             <StackItem className={stackItemStyles}>
