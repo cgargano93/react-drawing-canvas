@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import {Stack, StackItem, mergeStyles, DefaultPalette} from '@fluentui/react';
+
 import ClearButton from './clearbutton';
 import ColorButton from './colorbutton';
 import UndoButton from './undobutton';
@@ -10,49 +11,53 @@ import WidthButton from './widthbutton';
 
 const Toolbox = ({cref, pencilColor, changeCol, changeLine, changeWidth, undoFunction, redoFunction}) => {
 
-    const ToolB = styled.div`
-        position: absolute;
-        background-color: white;
-        display: inline;
-        padding: 20px;
-        margin:0px;
-        align-items: center;
-        border: 5px outset lightgray;
-        border-radius: 20px;
-    `
-    const Palette = styled.div`
-        align-items: center;
-        display: inline;
-        vertical-align: middle;
-        display: table-row;
-    `
+    const stackItemStyles = mergeStyles({
+        alignItems: 'center',
+        // background: DefaultPalette.themePrimary,
+        // color: DefaultPalette.themePrimary,
+        display: 'flex',
+        height: 50,
+        justifyContent: 'center',
+        width: 200,
+      });
+
+    const ToolboxStackTokens = { childrenGap: 10 };
+    const PaletteStackTokens = { childrenGap: 5 };
+
+
     return (
-        <ToolB>
+        <Stack tokens={ToolboxStackTokens}>
             <ClearButton cref={cref}/>
             <UndoButton undoFunction={undoFunction}/>
             <RedoButton redoFunction={redoFunction}/>
             <ScreenButton/>
-            <Palette>
-                <ColorButton cref={cref} changeCol={changeCol} color="black"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="darkred"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="tomato"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="orange"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="yellow"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="limegreen"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="lightgreen"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="aquamarine"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="skyblue"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="DodgerBlue"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="blue"/>
-                <ColorButton cref={cref} changeCol={changeCol} color="white"/>
-            </Palette>
-            <Palette>
+            <Stack tokens={PaletteStackTokens}>
+                <StackItem className={stackItemStyles}>
+                    <ColorButton cref={cref} changeCol={changeCol} color="black"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="darkred"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="tomato"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="orange"/>
+                </StackItem>
+                <StackItem className={stackItemStyles}>
+                    <ColorButton cref={cref} changeCol={changeCol} color="yellow"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="limegreen"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="lightgreen"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="aquamarine"/>
+                </StackItem>
+                <StackItem className={stackItemStyles}>
+                    <ColorButton cref={cref} changeCol={changeCol} color="skyblue"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="DodgerBlue"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="blue"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="white"/>
+                </StackItem>
+            </Stack>
+            <StackItem className={stackItemStyles}>
                 <WidthButton cref={cref} changeWidth={changeWidth} color={pencilColor} width={2}/>
                 <WidthButton cref={cref} changeWidth={changeWidth} color={pencilColor} width={5}/>
                 <WidthButton cref={cref} changeWidth={changeWidth} color={pencilColor} width={10}/>
                 <WidthButton cref={cref} changeWidth={changeWidth} color={pencilColor} width={20}/>
-            </Palette>
-        </ToolB>
+            </StackItem>
+        </Stack>
     );
 }
 export default Toolbox;

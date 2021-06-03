@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import {Stack} from '@fluentui/react'
 import Toolbox from './toolbox/component';
 import DrawingCanvas from './canvas/component';
 
@@ -19,10 +20,10 @@ const Notes = () => {
   };
   
   return (
-    <div id="maindiv">
+    <Stack horizontal>
         <Toolbox cref={canvasRef} pencilColor={pencilColor} changeCol={changeCol} changeLine={changeLine} changeWidth={changeWidth} undoFunction={Undo} redoFunction={Redo}/>
         <DrawingCanvas canvasRef={canvasRef} contextRef={contextRef} pencilColor={pencilColor} pencilLine={pencilLine} pencilWidth={pencilWidth}/>
-    </div>
+    </Stack>
   );
 }
 export default Notes;
