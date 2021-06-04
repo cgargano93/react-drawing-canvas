@@ -9,7 +9,7 @@ const TextButton = ({cref, color, changeWidth, width}) => {
         padding-left: 20px;
         margin-right: 5px;
         align-items: center;
-        background: grey;
+        background: darkred;
         color: white;
         border-radius: 10px;
         cursor: pointer;
