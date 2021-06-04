@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stack, StackItem, mergeStyles, DefaultPalette} from '@fluentui/react';
+import {Stack, StackItem, mergeStyles} from '@fluentui/react';
 
 import ClearButton from './clearbutton';
 import ColorButton from './colorbutton';
@@ -7,6 +7,7 @@ import UndoButton from './undobutton';
 import RedoButton from './redobutton';
 import ScreenButton from './screenbutton';
 import WidthButton from './widthbutton';
+import TextButton from './textbutton.js';
 
 
 const Toolbox = ({cref, pencilColor, changeCol, changeLine, changeWidth, undoFunction, redoFunction}) => {
@@ -37,6 +38,7 @@ const Toolbox = ({cref, pencilColor, changeCol, changeLine, changeWidth, undoFun
             <StackItem className={stackItemStyles}><UndoButton undoFunction={undoFunction}/></StackItem>
             <StackItem className={stackItemStyles}><RedoButton redoFunction={redoFunction}/></StackItem>
             <StackItem className={stackItemStyles}><ScreenButton/></StackItem>
+            <StackItem className={stackItemStyles}><TextButton/></StackItem>
             <Stack tokens={PaletteStackTokens}>
                 <StackItem className={stackItemStyles}>
                     <ColorButton cref={cref} changeCol={changeCol} color="black"/>
@@ -47,15 +49,15 @@ const Toolbox = ({cref, pencilColor, changeCol, changeLine, changeWidth, undoFun
                 </StackItem>
                 <StackItem className={stackItemStyles}>
                     <ColorButton cref={cref} changeCol={changeCol} color="darkred"/>
+                    <ColorButton cref={cref} changeCol={changeCol} color="red"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="tomato"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="orange"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="yellow"/>
-                    <ColorButton cref={cref} changeCol={changeCol} color="limegreen"/>
                 </StackItem>
                 <StackItem className={stackItemStyles}>
+                    <ColorButton cref={cref} changeCol={changeCol} color="limegreen"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="lightgreen"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="aquamarine"/>
-                    <ColorButton cref={cref} changeCol={changeCol} color="skyblue"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="DodgerBlue"/>
                     <ColorButton cref={cref} changeCol={changeCol} color="blue"/>
                 </StackItem>

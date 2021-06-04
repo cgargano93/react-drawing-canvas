@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 
 const WidthButton = ({cref, color, changeWidth, width}) => {
     const WidthB = styled.button`
-        border: ${20-width}px solid lightgrey;
+        border: ${21-width}px solid lightgrey;
         margin-left: 3px;
         margin-right: 3px;
-        width: 0px;
-        height: 0px;
+        width: 21px;
+        height: 21px;
         padding: ${width}px;
         border-radius: 20px;
         background: ${color};
