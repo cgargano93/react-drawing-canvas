@@ -22,7 +22,7 @@ const TextButton = ({cref, color, changeWidth, width}) => {
     };
 
     return (
-        <TextB  onClick={WriteText}><h2>Text</h2></TextB>
+        <TextB  onClick={WriteText}><h2>Text (TODO)</h2></TextB>
     );
 }
 export default TextButton;
