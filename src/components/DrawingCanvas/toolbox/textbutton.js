@@ -15,10 +15,10 @@ const TextButton = ({cref, color, changeWidth, width}) => {
         cursor: pointer;
     `
     const WriteText = () => {
-        var canvas = cref.current;
-        var ctx = canvas.getContext("2d");
-        ctx.lineWidth = width;
-        changeWidth(width);
+        // var canvas = cref.current;
+        // var ctx = canvas.getContext("2d");
+        // ctx.lineWidth = width;
+        // changeWidth(width);
     };
 
     return (
